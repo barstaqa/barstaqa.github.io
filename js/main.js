@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const htmlElement = document.documentElement;
     
-    // Check user preference
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    // Check user preference - default to dark mode if no preference is set
+    const darkModePreference = localStorage.getItem('darkMode');
+    const isDarkMode = darkModePreference === null ? true : darkModePreference === 'true';
     
     // Set initial dark mode state
     if (isDarkMode) {
