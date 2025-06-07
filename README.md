@@ -1,46 +1,43 @@
 # barstaqa.github.io
 
-Strona internetowa portfoliowa wzorowana na [wiciaki.github.io](https://wiciaki.github.io)
+## About the Project
+A simple portfolio website containing information about:
+- Skills
+- Professional experience
+- Education
 
-## O projekcie
-Prosta strona internetowa typu portfolio, zawierająca informacje o:
-- Umiejętnościach
-- Doświadczeniu zawodowym
-- Wykształceniu
-- Projektach
+## Features
+- Multi-language support (Polish and English)
+- Light/dark mode
+- Responsive design
+- Interactive elements (project filters, animations)
+- Mobile navigation
 
-## Funkcje
-- Wsparcie dla wielu języków (polski i angielski)
-- Tryb jasny/ciemny
-- Responsywny design
-- Interaktywne elementy (filtry projektów, animacje)
-- Nawigacja mobilna
-
-## Technologie
+## Technologies
 - HTML5
 - Tailwind CSS
 - JavaScript
-- Font Awesome (ikony)
+- Font Awesome (icons)
 
-## Struktura projektu
-- `index.html` - główny plik strony
-- `/css/style.css` - dodatkowe style (opcjonalnie, głównie używany Tailwind)
-- `/js/main.js` - skrypty JavaScript (funkcjonalność strony)
-- `/js/tailwind.config.js` - konfiguracja Tailwind CSS
-- `/images/` - katalog z obrazami
-- `/files/` - katalog na pliki do pobrania (np. CV)
+## Project Structure
+- `index.html` - main page file
+- `/css/style.css` - additional styles (optional, mainly using Tailwind)
+- `/js/main.js` - JavaScript scripts (page functionality)
+- `/js/tailwind.config.js` - Tailwind CSS configuration
+- `/images/` - directory with images
+- `/files/` - directory for downloadable files (e.g., CV)
 
-## Instalacja
-1. Sklonuj repozytorium: `git clone https://github.com/barstaqa/barstaqa.github.io.git`
-2. Otwórz plik `index.html` w przeglądarce
+## Installation
+1. Clone the repository: `git clone https://github.com/barstaqa/barstaqa.github.io.git`
+2. Open the `index.html` file in your browser
 
-## Uruchomienie online
-Strona dostępna pod adresem: [https://barstaqa.github.io](https://barstaqa.github.io)
+## Online Access
+The website is available at: [https://barstaqa.github.io](https://barstaqa.github.io)
 
-## Personalizacja
-Aby dostosować stronę do własnych potrzeb:
-1. Podmień dane osobowe w pliku `index.html`
-2. Dodaj własne zdjęcie profilowe do `/images/profile.jpg`
-3. Podmień ikony umiejętności w `/images/skills/`
-4. Dodaj własne CV w `/files/Bartosz_Stachowski_CV.pdf`
-5. Dostosuj kolory i czcionki w pliku `/js/tailwind.config.js`
+## Customization
+To customize the website for your own needs:
+1. Replace personal data in the `index.html` file
+2. Add your own profile photo to `/images/profile.jpg`
+3. Replace skill icons in `/images/skills/`
+4. Add your own CV to `/files/Bartosz_Stachowski_CV.pdf`
+5. Customize colors and fonts in the `/js/tailwind.config.js` file
