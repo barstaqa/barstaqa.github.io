@@ -1,221 +1,505 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bartosz Stachowski - Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind.config.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header class="hero">
-        <div class="container">
-            <div class="profile">
-                <img src="images/profile.jpg" alt="Bartosz Stachowski" class="profile-image">
-                <h1>Witaj, jestem Bartosz</h1>
-                <p class="subtitle">Tester Oprogramowania & QA Engineer</p>
-                <div class="social-links">
-                    <a href="mailto:bartosz.stachowski@example.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/barstaqa" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/bartosz-stachowski" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<body class="bg-gray-50 dark:bg-dark-primary font-sans text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <div class="fixed top-4 right-4 z-50 flex items-center space-x-2">
+        <button id="darkModeToggle" class="bg-secondary dark:bg-dark-secondary text-white p-2 rounded-full shadow-lg hover:bg-accent dark:hover:bg-dark-accent transition-all">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+        <div class="bg-accent dark:bg-dark-accent rounded-full py-1 px-2 shadow-lg flex items-center">
+            <button class="lang-btn text-white font-medium px-2 py-1 rounded-full transition-all hover:bg-white/20 active" data-lang="en">EN</button>
+            <span class="text-white/70 mx-1">|</span>
+            <button class="lang-btn text-white font-medium px-2 py-1 rounded-full transition-all hover:bg-white/20" data-lang="pl">PL</button>
+        </div>
+    </div>
+    
+    <nav class="fixed top-0 left-0 w-full bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm shadow-md z-40">
+        <div class="container mx-auto">
+            <div class="flex justify-center items-center py-4 px-4 md:px-0">
+                <div class="flex space-x-1 sm:space-x-2 md:space-x-4 overflow-x-auto">
+                    <a href="#" class="nav-link text-primary dark:text-white font-bold px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-primary transition-colors flex items-center">
+                        <i class="fas fa-home mr-2"></i><span class="hidden sm:inline">Home</span>
+                    </a>
+                    <a href="#about" class="nav-link text-secondary dark:text-white px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-primary transition-colors" data-en="About" data-pl="O mnie">About</a>
+                    <a href="#skills" class="nav-link text-secondary dark:text-white px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-primary transition-colors" data-en="Skills" data-pl="Umiejętności">Skills</a>
+                    <a href="#experience" class="nav-link text-secondary dark:text-white px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-primary transition-colors" data-en="Experience" data-pl="Doświadczenie">Experience</a>
+                    <a href="#education" class="nav-link text-secondary dark:text-white px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-primary transition-colors" data-en="Education" data-pl="Edukacja">Education</a>
+                    <div class="w-0.5 h-8 bg-gradient-to-b from-blue-300 via-blue-500 to-blue-300 dark:from-blue-600 dark:via-blue-400 dark:to-blue-600 mx-3 self-center rounded-full opacity-70"></div>
+                    <a href="https://www.ontests.io" target="_blank" class="nav-link text-secondary dark:text-white px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-dark-primary transition-colors flex items-center space-x-2">
+                        <span>OntestS</span>
+                        <span class="bg-accent dark:bg-dark-accent text-white text-xs px-2 py-1 rounded-full font-medium" data-en="Soon" data-pl="Wkrótce">Soon</span>
+                    </a>
                 </div>
-                <a href="files/Bartosz_Stachowski_CV.pdf" class="btn" download>Pobierz CV (.pdf)</a>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-cyan-900 dark:from-gray-900 dark:via-blue-900 dark:to-black text-white pt-28 pb-20 text-center overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 animate-pulse"></div>
+        <div class="absolute top-10 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-bounce"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col items-center">
+                <img src="images/profile.jpeg" alt="Bartosz Stachowski" class="w-40 h-40 rounded-full object-cover border-4 border-white mb-6 shadow-lg">
+                <h1 class="text-4xl font-bold mb-2" data-en="Greetings, I'm Bartosz" data-pl="Cześć, jestem Bartosz">Greetings, I'm Bartosz</h1>
+                <p class="text-xl mb-6 font-light" data-en="QA Specialist & Automation Test Engineer" data-pl="Specjalista QA & Tester automatyzujący">QA Specialist & Automation Test Engineer</p>
+                <div class="flex space-x-4 mb-6">
+                    <a href="mailto:stachowski.bartek@gmail.com" aria-label="Email" class="text-white text-xl hover:text-accent transition-colors"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/barstaqa" target="_blank" aria-label="GitHub" class="text-white text-xl hover:text-accent transition-colors"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/stachowskib/" target="_blank" aria-label="LinkedIn" class="text-white text-xl hover:text-accent transition-colors"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <a href="files/Bartosz_Stachowski_CV.pdf" class="bg-accent hover:bg-transparent border-2 border-transparent hover:border-white text-white font-medium py-2 px-6 rounded-full transition-all transform hover:-translate-y-1" download data-en="Download CV (.pdf)" data-pl="Pobierz CV (.pdf)">Download CV (.pdf)</a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h2>O mnie</h2>
-            <p>
-                Od [ROK] zajmuję się testowaniem oprogramowania, specjalizując się w testach manualnych i automatycznych.
-                Mam doświadczenie w pracy z różnorodnymi aplikacjami webowymi i mobilnymi, a także 
-                z narzędziami do zarządzania testami i zgłaszania błędów.
-            </p>
-            <p>
-                Poza pracą, angażuję się w społeczność testerską, dzieląc się wiedzą i
-                najlepszymi praktykami z zakresu QA.
-            </p>
-            <div class="skills-container">
-                <div class="skill">Pasja</div>
-                <div class="skill">Dokładność</div>
-                <div class="skill">Praca zespołowa</div>
-                <div class="skill">Kreatywność</div>
-                <div class="skill">Elastyczność</div>
-                <div class="skill">Analityczne myślenie</div>
+    <section id="about" class="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-gray-900 dark:via-slate-900 dark:to-black overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-80 h-80 bg-gradient-to-tr from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-800 to-cyan-800 dark:from-blue-400 dark:via-blue-300 dark:to-cyan-400 bg-clip-text text-transparent mb-6" data-en="About me" data-pl="O mnie">About me</h2>
             </div>
-        </div>
-    </section>
-
-    <section id="skills" class="section">
-        <div class="container">
-            <h2>Umiejętności</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <img src="images/skills/selenium.png" alt="Selenium WebDriver" class="skill-icon">
-                    <h3>Selenium WebDriver</h3>
-                    <p>
-                        [X] lat doświadczenia w automatyzacji testów z wykorzystaniem Selenium WebDriver. 
-                        Tworzenie frameworków testowych, implementacja wzorców projektowych.
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-xl border border-white/20 dark:border-gray-700/20">
+                    <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 text-center font-medium" data-en="QA Specialist & Automation Test Engineer with 4 years of experience across more than 6 projects in Construction, Aviation, and Email Marketing domains. My expertise lies in creating robust test strategies, automating regression tests, and ensuring quality throughout the development lifecycle." 
+                       data-pl="Specjalista QA i Inżynier Testów Automatycznych z 4-letnim doświadczeniem w ponad 6 projektach z branż budowlanej, lotniczej i email marketingu. Moja specjalizacja to tworzenie solidnych strategii testowych, automatyzacja testów regresyjnych i zapewnianie jakości w całym cyklu rozwoju oprogramowania.">
+                        QA Specialist & Automation Test Engineer with 4 years of experience across more than 6 projects in Construction, Aviation, and Email Marketing domains. My expertise lies in creating robust test strategies, automating regression tests, and ensuring quality throughout the development lifecycle.
                     </p>
-                </div>
-
-                <div class="skill-card">
-                    <img src="images/skills/java.png" alt="Java" class="skill-icon">
-                    <h3>Java</h3>
-                    <p>
-                        [X] lat doświadczenia w programowaniu w Javie, głównie w kontekście automatyzacji testów.
-                        Znajomość JUnit, TestNG i Maven.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <img src="images/skills/jira.png" alt="JIRA" class="skill-icon">
-                    <h3>JIRA & Test Management</h3>
-                    <p>
-                        Zaawansowana znajomość narzędzi do zarządzania testami i błędami, w tym JIRA,
-                        TestRail i Zephyr.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <img src="images/skills/api.png" alt="API Testing" class="skill-icon">
-                    <h3>Testowanie API</h3>
-                    <p>
-                        Doświadczenie w testowaniu REST API z wykorzystaniem narzędzi takich jak
-                        Postman, REST-assured i SoapUI.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <img src="images/skills/sql.png" alt="SQL" class="skill-icon">
-                    <h3>SQL</h3>
-                    <p>
-                        Praktyczna znajomość SQL do pracy z bazami danych w kontekście testowania,
-                        weryfikacji danych i przygotowywania scenariuszy testowych.
-                    </p>
-                </div>
-
-                <div class="skill-card">
-                    <img src="images/skills/git.png" alt="Git" class="skill-icon">
-                    <h3>Git</h3>
-                    <p>
-                        Doświadczenie w kontroli wersji kodu z wykorzystaniem Git, praca z
-                        repozytoriami, code review, branch management.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="section">
-        <div class="container">
-            <h2>Doświadczenie</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">[ROK] - Obecnie</div>
-                    <div class="timeline-content">
-                        <h3>QA Engineer</h3>
-                        <h4>[Nazwa Firmy]</h4>
-                        <ul>
-                            <li>Projektowanie i wykonywanie manualnych i automatycznych testów dla aplikacji webowych</li>
-                            <li>Automatyzacja testów z wykorzystaniem Selenium i Java</li>
-                            <li>Współpraca z deweloperami w metodologii Agile/Scrum</li>
-                            <li>Raportowanie błędów i zarządzanie cyklem ich życia w JIRA</li>
-                        </ul>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mb-10">
+                        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-2xl p-6 border border-blue-100 dark:border-blue-800/30">
+                            <h3 class="text-lg font-bold bg-gradient-to-r from-blue-900 to-cyan-900 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4" data-en="Technical Expertise" data-pl="Ekspertyza Techniczna">Technical Expertise</h3>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                <li class="flex items-start" data-en="• Test automation for web, mobile, and desktop applications" data-pl="• Automatyzacja testów dla aplikacji webowych, mobilnych i desktopowych">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></div>
+                                    <span>Test automation for web, mobile, and desktop applications</span>
+                                </li>
+                                <li class="flex items-start" data-en="• CI/CD pipeline configuration and optimization" data-pl="• Konfiguracja i optymalizacja potoków CI/CD">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></div>
+                                    <span>CI/CD pipeline configuration and optimization</span>
+                                </li>
+                                <li class="flex items-start" data-en="• UI/UX evaluation and usability improvement" data-pl="• Ocena UI/UX i poprawa użyteczności">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></div>
+                                    <span>UI/UX evaluation and usability improvement</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-cyan-900/30 dark:to-blue-900/30 rounded-2xl p-6 border border-cyan-100 dark:border-cyan-800/30">
+                            <h3 class="text-lg font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-4" data-en="Leadership & Growth" data-pl="Przywództwo i Rozwój">Leadership & Growth</h3>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                                <li class="flex items-start" data-en="• QA team recruitment and development" data-pl="• Rekrutacja i rozwój zespołów QA">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></div>
+                                    <span>QA team recruitment and development</span>
+                                </li>
+                                <li class="flex items-start" data-en="• Cross-team collaboration and process improvement" data-pl="• Współpraca międzyzespołowa i usprawnianie procesów">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></div>
+                                    <span>Cross-team collaboration and process improvement</span>
+                                </li>
+                                <li class="flex items-start" data-en="• Scalable testing environment design" data-pl="• Projektowanie skalowalnych środowisk testowych">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-1.5 flex-shrink-0"></div>
+                                    <span>Scalable testing environment design</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">[ROK] - [ROK]</div>
-                    <div class="timeline-content">
-                        <h3>Tester Oprogramowania</h3>
-                        <h4>[Nazwa Firmy]</h4>
-                        <ul>
-                            <li>Przeprowadzanie testów manualnych funkcjonalnych i regresyjnych</li>
-                            <li>Tworzenie przypadków testowych i scenariuszy testowych</li>
-                            <li>Udział w codziennych stand-upach i planowaniu sprintów</li>
-                        </ul>
+                    
+                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-10 text-center" data-en="Passionate about delivering high-quality software solutions and fostering collaboration between development, testing, and design teams to create seamless user experiences." 
+                       data-pl="Pasjonuję się dostarczaniem wysokiej jakości rozwiązań programistycznych i wspieraniem współpracy między zespołami deweloperskimi, testowymi i projektowymi w celu tworzenia płynnych doświadczeń użytkownika.">
+                        Passionate about delivering high-quality software solutions and fostering collaboration between development, testing, and design teams to create seamless user experiences.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105" data-en="Passion" data-pl="Pasja">Passion</span>
+                        <span class="bg-gradient-to-r from-cyan-600 to-blue-700 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105" data-en="Precision" data-pl="Dokładność">Precision</span>
+                        <span class="bg-gradient-to-r from-blue-700 to-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105" data-en="Teamwork" data-pl="Praca zespołowa">Teamwork</span>
+                        <span class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105" data-en="Creativity" data-pl="Kreatywność">Creativity</span>
+                        <span class="bg-gradient-to-r from-cyan-600 to-blue-700 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105" data-en="Flexibility" data-pl="Elastyczność">Flexibility</span>
+                        <span class="bg-gradient-to-r from-blue-700 to-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-all hover:scale-105" data-en="Analytical thinking" data-pl="Analityczne myślenie">Analytical thinking</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="education" class="section">
-        <div class="container">
-            <h2>Edukacja</h2>
-            <div class="education-card">
-                <h3>[Nazwa Uniwersytetu/Uczelni]</h3>
-                <div class="education-info">
-                    <span class="education-date">[ROK] - [ROK]</span>
-                    <span class="education-degree">Magister/Licencjat [Kierunek]</span>
+    <section id="skills" class="relative py-24 bg-gradient-to-br from-white via-slate-50 to-blue-50 dark:from-black dark:via-gray-900 dark:to-slate-900 overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tr from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-900 via-blue-900 to-blue-800 dark:from-cyan-400 dark:via-blue-400 dark:to-blue-300 bg-clip-text text-transparent mb-6" data-en="Skills" data-pl="Umiejętności">Skills</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img src="images/skills/playwright.png" alt="Playwright" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-blue-900 to-cyan-900 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4">Playwright</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed" data-en="Modern browser automation tool for reliable end-to-end testing. Cross-browser testing with excellent developer experience."
+                           data-pl="Nowoczesne narzędzie do automatyzacji przeglądarek dla niezawodnych testów end-to-end. Testowanie międzyprzeglądarkowe z doskonałym doświadczeniem programistycznym.">
+                            Modern browser automation tool for reliable end-to-end testing. Cross-browser testing with excellent developer experience.
+                        </p>
+                    </div>
                 </div>
-                <p>
-                    Specjalizacja: [Specjalizacja, jeśli dotyczy]
+
+                <div class="group bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img src="images/skills/cypress.svg" alt="Cypress" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">Cypress</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed" data-en="Modern end-to-end testing framework for web applications. Fast, reliable, and developer-friendly testing experience."
+                           data-pl="Nowoczesny framework do testów end-to-end dla aplikacji webowych. Szybkie, niezawodne i przyjazne dla programistów testowanie.">
+                            Modern end-to-end testing framework for web applications. Fast, reliable, and developer-friendly testing experience.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img src="images/skills/javascript-original.svg" alt="JavaScript" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent mb-4">JavaScript</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed" data-en="Modern JavaScript development for test automation, web scraping, and API testing with Node.js ecosystem."
+                           data-pl="Nowoczesne programowanie w JavaScript do automatyzacji testów, web scrapingu i testowania API z ekosystemem Node.js.">
+                            Modern JavaScript development for test automation, web scraping, and API testing with Node.js ecosystem.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img src="images/skills/typescript-original.svg" alt="TypeScript" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-blue-900 to-cyan-900 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4">TypeScript</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed" data-en="Type-safe development for robust test automation frameworks and maintainable code architecture."
+                           data-pl="Bezpieczne typowanie dla solidnych frameworków automatyzacji testów i łatwej w utrzymaniu architektury kodu.">
+                            Type-safe development for robust test automation frameworks and maintainable code architecture.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img src="images/skills/postman.svg" alt="API Testing" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-4">API Testing</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed" data-en="Comprehensive API testing with Postman, REST-assured, and automated test suites for microservices."
+                           data-pl="Kompleksowe testowanie API z Postman, REST-assured i automatycznymi pakietami testów dla mikrousług.">
+                            Comprehensive API testing with Postman, REST-assured, and automated test suites for microservices.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="group bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-600 to-blue-500 p-4 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <img src="images/skills/git.svg" alt="Git" class="w-full h-full object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold bg-gradient-to-r from-blue-900 to-blue-800 dark:from-blue-400 dark:to-blue-300 bg-clip-text text-transparent mb-4">Git & DevOps</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-center leading-relaxed" data-en="Version control, CI/CD pipelines, and collaborative development workflows with modern DevOps practices."
+                           data-pl="Kontrola wersji, potoki CI/CD i wspólne przepływy pracy z nowoczesnymi praktykami DevOps.">
+                            Version control, CI/CD pipelines, and collaborative development workflows with modern DevOps practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="relative py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-black overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-10 right-10 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-tr from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-cyan-900 to-blue-800 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-6" data-en="Experience" data-pl="Doświadczenie">Experience</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto relative">
+                <!-- Modern Timeline Line -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 via-cyan-500 to-blue-500 transform -translate-x-1/2 hidden md:block"></div>
+                
+                <!-- Timeline Item 1 - EPC Network -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full transform -translate-x-1/2 z-10 shadow-lg hidden md:block"></div>
+                        
+                        <!-- Content Card -->
+                        <div class="w-full md:w-5/12 md:ml-auto bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                            <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm font-medium rounded-full mb-4" data-en="March 2024 - Present" data-pl="Marzec 2024 - Obecnie">March 2024 - Present</div>
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-900 to-cyan-900 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-2" data-en="QA Specialist" data-pl="Specjalista QA">QA Specialist</h3>
+                            <h4 class="text-lg text-blue-600 dark:text-blue-400 mb-6 font-medium">EPC Network</h4>
+                            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Leading comprehensive testing of construction management software platforms" data-pl="Kierowanie kompleksowymi testami platform oprogramowania do zarządzania konstrukcjami">Leading comprehensive testing of construction management software platforms</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Implementing automated testing frameworks using Playwright and Cypress" data-pl="Wdrażanie zautomatyzowanych frameworków testowych z Playwright i Cypress">Implementing automated testing frameworks using Playwright and Cypress</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Mentoring junior QA team members and establishing testing best practices" data-pl="Mentoring młodszych członków zespołu QA i ustanawianie najlepszych praktyk testowych">Mentoring junior QA team members and establishing testing best practices</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Collaborating with international teams in Agile/Scrum environment" data-pl="Współpraca z międzynarodowymi zespołami w środowisku Agile/Scrum">Collaborating with international teams in Agile/Scrum environment</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Timeline Item 2 - Evionica -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full transform -translate-x-1/2 z-10 shadow-lg hidden md:block"></div>
+                        
+                        <!-- Content Card -->
+                        <div class="w-full md:w-5/12 md:mr-auto bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                            <div class="inline-block px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-medium rounded-full mb-4" data-en="September 2022 - December 2023" data-pl="Wrzesień 2022 - Grudzień 2023">September 2022 - December 2023</div>
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2" data-en="QA Engineer" data-pl="Inżynier QA">QA Engineer</h3>
+                            <h4 class="text-lg text-cyan-600 dark:text-cyan-400 mb-6 font-medium">Evionica</h4>
+                            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Testing critical aviation software systems with strict safety requirements" data-pl="Testowanie krytycznych systemów oprogramowania lotniczego z rygorystycznymi wymaganiami bezpieczeństwa">Testing critical aviation software systems with strict safety requirements</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Developing comprehensive test automation suites for complex user interfaces" data-pl="Tworzenie kompleksowych pakietów automatyzacji testów dla złożonych interfejsów użytkownika">Developing comprehensive test automation suites for complex user interfaces</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Performing rigorous integration and system testing procedures" data-pl="Przeprowadzanie rygorystycznych procedur testów integracyjnych i systemowych">Performing rigorous integration and system testing procedures</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Managing test documentation and compliance with industry standards" data-pl="Zarządzanie dokumentacją testową i zgodnością ze standardami branżowymi">Managing test documentation and compliance with industry standards</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 - Hustro -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 w-6 h-6 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full transform -translate-x-1/2 z-10 shadow-lg hidden md:block"></div>
+                        
+                        <!-- Content Card -->
+                        <div class="w-full md:w-5/12 md:ml-auto bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                            <div class="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-sm font-medium rounded-full mb-4" data-en="August 2021 - August 2022" data-pl="Sierpień 2021 - Sierpień 2022">August 2021 - August 2022</div>
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-900 to-cyan-900 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-2" data-en="Software Tester" data-pl="Tester Oprogramowania">Software Tester</h3>
+                            <h4 class="text-lg text-blue-600 dark:text-blue-400 mb-6 font-medium">Hustro</h4>
+                            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Testing email marketing platforms and customer engagement tools" data-pl="Testowanie platform email marketingu i narzędzi do zaangażowania klientów">Testing email marketing platforms and customer engagement tools</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Executing functional, regression, and performance testing scenarios" data-pl="Wykonywanie scenariuszy testów funkcjonalnych, regresyjnych i wydajnościowych">Executing functional, regression, and performance testing scenarios</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Creating detailed test cases and maintaining test documentation" data-pl="Tworzenie szczegółowych przypadków testowych i utrzymywanie dokumentacji testowej">Creating detailed test cases and maintaining test documentation</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Collaborating with cross-functional teams in sprint-based development" data-pl="Współpraca z zespołami międzyfunkcyjnymi w rozwoju opartym na sprintach">Collaborating with cross-functional teams in sprint-based development</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 - TestArmy -->
+                <div class="mb-16 relative">
+                    <div class="flex flex-col md:flex-row items-center">
+                        <!-- Timeline Dot -->
+                        <div class="absolute left-1/2 w-6 h-6 bg-gradient-to-r from-cyan-600 to-blue-500 rounded-full transform -translate-x-1/2 z-10 shadow-lg hidden md:block"></div>
+                        
+                        <!-- Content Card -->
+                        <div class="w-full md:w-5/12 md:mr-auto bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                            <div class="inline-block px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white text-sm font-medium rounded-full mb-4" data-en="February 2021 - June 2021" data-pl="Luty 2021 - Czerwiec 2021">February 2021 - June 2021</div>
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-2" data-en="Intern" data-pl="Stażysta">Intern</h3>
+                            <h4 class="text-lg text-cyan-600 dark:text-cyan-400 mb-6 font-medium">TestArmy</h4>
+                            <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Learning fundamentals of software testing methodologies and best practices" data-pl="Nauka podstaw metodologii testowania oprogramowania i najlepszych praktyk">Learning fundamentals of software testing methodologies and best practices</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Participating in manual testing projects across various domains" data-pl="Udział w projektach testów manualnych w różnych dziedzinach">Participating in manual testing projects across various domains</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Developing skills in bug reporting and test case design" data-pl="Rozwijanie umiejętności w raportowaniu błędów i projektowaniu przypadków testowych">Developing skills in bug reporting and test case design</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                                    <span data-en="Building foundation in testing tools and Agile development processes" data-pl="Budowanie podstaw w narzędziach testowych i procesach rozwoju Agile">Building foundation in testing tools and Agile development processes</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="relative py-24 bg-gradient-to-br from-white via-blue-50 to-cyan-50 dark:from-black dark:via-blue-900 dark:to-cyan-900 overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 right-20 w-72 h-72 bg-gradient-to-tr from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-cyan-900 to-blue-800 dark:from-blue-400 dark:via-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-6" data-en="Education" data-pl="Edukacja">Education</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-8">
+                <!-- Education Card - Combined Schools -->
+                <div class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                    <div class="flex items-start space-x-6 mb-10">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-900 to-cyan-900 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4" data-en="Maritime University of Szczecin" data-pl="Akademia Morska w Szczecinie">Maritime University of Szczecin</h3>
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <span class="text-lg font-semibold text-cyan-600 dark:text-cyan-400" data-en="Bachelor of Navigation Engineer" data-pl="Inżynier Nawigacji">Bachelor of Navigation Engineer</span>
+                                <span class="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/50 dark:to-cyan-900/50 text-blue-800 dark:text-blue-300 rounded-full text-sm font-medium mb-2 md:mb-0" data-en="2010 - 2015" data-pl="2010 - 2015">2010 - 2015</span>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-en="Engineering degree in maritime navigation and ship operations" data-pl="Stopień inżynierski w zakresie nawigacji morskiej i eksploatacji statków">
+                                Engineering degree in maritime navigation and ship operations
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="flex items-center my-8">
+                        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent dark:via-blue-600"></div>
+                    </div>
+
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-school text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-4" data-en="Secondary Technical School of Electrical Engineering" data-pl="Technikum Elektryczne">Secondary Technical School of Electrical Engineering</h3>
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                                <span class="text-lg font-semibold text-blue-600 dark:text-blue-400" data-en="Information Technology" data-pl="Informatyka">Information Technology</span>
+                                <span class="inline-block px-4 py-2 bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-900/50 dark:to-blue-900/50 text-cyan-800 dark:text-cyan-300 rounded-full text-sm font-medium mb-2 md:mb-0" data-en="2006 - 2010" data-pl="2006 - 2010">2006 - 2010</span>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed" data-en="Technical education in computer science and information technology systems" data-pl="Wykształcenie techniczne w zakresie informatyki i systemów informatycznych">
+                                Technical education in computer science and information technology systems
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificates Card -->
+                <div class="bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm rounded-3xl p-8 md:p-10 shadow-xl border border-white/20 dark:border-gray-700/20 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                <i class="fas fa-certificate text-white text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-cyan-900 to-blue-900 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent mb-6" data-en="Certificates" data-pl="Certyfikaty">Certificates</h3>
+                            <div class="flex justify-center">
+                                <div class="flex items-center space-x-4 p-6 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/30 dark:to-cyan-900/30 rounded-xl border border-blue-100 dark:border-blue-800/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 max-w-md w-full">
+                                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center flex-shrink-0 shadow-md">
+                                        <i class="fas fa-award text-white text-lg"></i>
+                                    </div>
+                                    <div class="text-center flex-1">
+                                        <span class="font-semibold text-gray-800 dark:text-gray-200 text-lg" data-en="ISTQB® CT Foundation Level – April 2021" data-pl="ISTQB® CT Foundation Level – Kwiecień 2021">ISTQB® CT Foundation Level – April 2021</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 dark:from-black dark:via-gray-900 dark:to-black text-white py-16 overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-gradient-to-tr from-cyan-400/10 to-blue-400/10 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-6" data-en="Get in Touch" data-pl="Skontaktuj się">Get in Touch</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed" data-en="Ready to discuss your testing needs or collaborate on a project? I'd love to hear from you!" data-pl="Gotowy na omówienie potrzeb testowych lub współpracę przy projekcie? Chętnie się z Tobą skontaktuję!">
+                        Ready to discuss your testing needs or collaborate on a project? I'd love to hear from you!
+                    </p>
+                    <div class="space-y-4">
+                        <a href="mailto:stachowski.bartek@gmail.com" class="flex items-center justify-center md:justify-start text-white hover:text-blue-400 transition-colors group">
+                            <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <span class="font-medium">stachowski.bartek@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <div class="p-6 bg-white/10 dark:bg-gray-900/30 backdrop-blur-sm rounded-2xl border border-white/20">
+                        <div class="flex items-center justify-center space-x-3 mb-3">
+                            <div class="w-8 h-8 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-rocket text-white text-sm"></i>
+                            </div>
+                            <span class="font-semibold text-lg">OntestS</span>
+                            <span class="px-2 py-1 bg-gradient-to-r from-yellow-500 to-orange-500 text-white text-xs rounded-full font-medium">Soon</span>
+                        </div>
+                        <p class="text-gray-300 text-sm text-center" data-en="Providing the highest quality services for comprehensive IT systems testing and quality assurance." data-pl="Zapewnianie najwyższej jakości usług kompleksowego testowania systemów IT i zapewnienia jakości.">Providing the highest quality services for comprehensive IT systems testing and quality assurance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/20 text-center">
+                <p class="text-gray-300 mb-4" data-en="© 2025 Bartosz Stachowski | Crafted with passion for quality" data-pl="© 2025 Bartosz Stachowski | Stworzone z pasją do jakości">
+                    © 2025 Bartosz Stachowski | Crafted with passion for quality
                 </p>
-            </div>
-            <div class="education-card">
-                <h3>Certyfikaty</h3>
-                <ul class="certificates-list">
-                    <li>ISTQB Foundation Level</li>
-                    <li>[Inny Certyfikat]</li>
-                    <li>[Inny Certyfikat]</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="section">
-        <div class="container">
-            <h2>Projekty</h2>
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">Wszystkie</button>
-                <button class="filter-btn" data-filter="professional">Zawodowe</button>
-                <button class="filter-btn" data-filter="personal">Osobiste</button>
-            </div>
-            <div class="projects-grid">
-                <div class="project-card" data-category="professional">
-                    <h3>[Nazwa Projektu]</h3>
-                    <p>[Krótki opis projektu - zawodowego związanego z testowaniem]</p>
-                    <div class="project-tags">
-                        <span class="tag">Selenium</span>
-                        <span class="tag">Java</span>
-                        <span class="tag">TestNG</span>
-                    </div>
-                    <a href="#" class="project-link">Szczegóły</a>
-                </div>
-                <div class="project-card" data-category="personal">
-                    <h3>[Nazwa Projektu]</h3>
-                    <p>[Krótki opis osobistego projektu]</p>
-                    <div class="project-tags">
-                        <span class="tag">Cypress</span>
-                        <span class="tag">JavaScript</span>
-                    </div>
-                    <a href="#" class="project-link">Szczegóły</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="contact">
-                <h3>Kontakt:</h3>
-                <p>
-                    <a href="mailto:bartosz.stachowski@example.com">bartosz.stachowski@example.com</a>
-                </p>
-                <div class="social-links">
-                    <a href="https://github.com/barstaqa" target="_blank" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/bartosz-stachowski" target="_blank" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="copyright">
-                © 2025 Bartosz Stachowski | Wszystkie prawa zastrzeżone
             </div>
         </div>
     </footer>
